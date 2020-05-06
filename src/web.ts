@@ -6,7 +6,7 @@ export class OAuth2ClientPluginWeb extends WebPlugin implements OAuth2ClientPlug
 
     private webOptions: WebOptions;
     private windowHandle: Window = null;
-    private intervalId: number = null;
+    private intervalId: number | any = null;
     private loopCount = 2000;
     private intervalLength = 100;
     private windowClosedByPlugin: boolean;
