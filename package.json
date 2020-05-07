@@ -1,9 +1,9 @@
 {
-    "name": "@carlosmart7104/capacitor-oauth2",
-    "version": "1.0.0",
+    "name": "capacitor-oauth2",
+    "version": "1.0.1",
     "description": "Simple Capacitor OAuth 2 client plugin",
-    "author": "Michael Oberwasserlechner",
-    "homepage": "https://github.com/moberwasserlechner/capacitor-oauth2",
+    "author": "Michael Oberwasserlechner forked by Carlos Martínez",
+    "homepage": "https://github.com/carlosmart7104/capacitor-oauth2",
     "license": "MIT",
     "main": "dist/esm/index.js",
     "types": "dist/esm/index.d.ts",
@@ -39,13 +39,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/moberwasserlechner/capacitor-oauth2"
+        "url": "https://github.com/carlosmart7104/capacitor-oauth2"
     },
     "bugs": {
-        "url": "https://github.com/moberwasserlechner/capacitor-oauth2/issues"
+        "url": "https://github.com/carlosmart7104/capacitor-oauth2/issues"
     },
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "registry": "https://npm.pkg.github.com/@carlosmart7104"
     },
     "peerDependencies": {
         "@capacitor/core": "^2.0.0"

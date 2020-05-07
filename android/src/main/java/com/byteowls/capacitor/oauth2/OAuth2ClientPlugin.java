@@ -19,6 +19,9 @@ import net.openid.appauth.AuthorizationRequest;
 import net.openid.appauth.AuthorizationResponse;
 import net.openid.appauth.AuthorizationService;
 import net.openid.appauth.AuthorizationServiceConfiguration;
+import net.openid.appauth.AppAuthConfiguration;
+import net.openid.appauth.BrowserWhitelist;
+import net.openid.appauth.VersionedBrowserMatcher;
 import net.openid.appauth.GrantTypeValues;
 import net.openid.appauth.TokenRequest;
 
@@ -257,7 +260,13 @@ public class OAuth2ClientPlugin extends Plugin {
 
             AuthorizationRequest req = builder.build();
 
-            this.authService = new AuthorizationService(getContext());
+            AppAuthConfiguration appAuthConfig = new AppAuthConfiguration.Builder()
+                .setBrowserMatcher(new BrowserWhitelist(
+                    VersionedBrowserMatcher.CHROME_CUSTOM_TAB,
+                    VersionedBrowserMatcher.SAMSUNG_CUSTOM_TAB))
+                .build();
+
+            this.authService = new AuthorizationService(getContext(), appAuthConfig);
             try {
                 Intent authIntent = this.authService.getAuthorizationRequestIntent(req);
                 saveCall(call);
