@@ -4,7 +4,10 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
+import androidx.browser.customtabs.CustomTabsClient;
 import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.browser.customtabs.CustomTabsServiceConnection;
+import androidx.browser.customtabs.CustomTabsSession;
 
 import com.byteowls.capacitor.oauth2.handler.AccessTokenCallback;
 import com.byteowls.capacitor.oauth2.handler.OAuth2CustomHandler;
@@ -32,6 +35,7 @@ import java.util.Map;
 
 @NativePlugin(requestCodes = {OAuth2ClientPlugin.REQ_OAUTH_AUTHORIZATION}, name = "OAuth2Client")
 public class OAuth2ClientPlugin extends Plugin {
+    public static final String CUSTOM_TAB_PACKAGE_NAME = "com.android.chrome";
 
     static final int REQ_OAUTH_AUTHORIZATION = 56854;
 
@@ -85,6 +89,9 @@ public class OAuth2ClientPlugin extends Plugin {
     private OAuth2Options oauth2Options;
     private AuthorizationService authService;
     private AuthState authState;
+
+    private CustomTabsClient customTabsClient;
+    private CustomTabsSession currentSession;
 
     public OAuth2ClientPlugin() {
     }
@@ -272,7 +279,8 @@ public class OAuth2ClientPlugin extends Plugin {
                 CustomTabsIntent customTabsIntent = new CustomTabsIntent.Builder().build();
                 Intent authIntent = this.authService.getAuthorizationRequestIntent(req, customTabsIntent);
                 saveCall(call);
-                startActivityForResult(call, authIntent, REQ_OAUTH_AUTHORIZATION);
+                customTabsIntent.launchUrl(getContext(), authorizationUri);
+                // startActivityForResult(call, authIntent, REQ_OAUTH_AUTHORIZATION);
             } catch (ActivityNotFoundException e) {
                 call.reject(ERR_ANDROID_NO_BROWSER, e);
             } catch (Exception e) {
