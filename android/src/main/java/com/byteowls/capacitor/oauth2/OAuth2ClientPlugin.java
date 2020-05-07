@@ -20,8 +20,8 @@ import net.openid.appauth.AuthorizationResponse;
 import net.openid.appauth.AuthorizationService;
 import net.openid.appauth.AuthorizationServiceConfiguration;
 import net.openid.appauth.AppAuthConfiguration;
-import net.openid.appauth.BrowserWhitelist;
-import net.openid.appauth.VersionedBrowserMatcher;
+import net.openid.appauth.browser.BrowserWhitelist;
+import net.openid.appauth.browser.VersionedBrowserMatcher;
 import net.openid.appauth.GrantTypeValues;
 import net.openid.appauth.TokenRequest;
 
