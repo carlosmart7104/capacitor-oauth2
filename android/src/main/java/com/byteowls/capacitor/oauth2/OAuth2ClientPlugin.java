@@ -269,8 +269,6 @@ public class OAuth2ClientPlugin extends Plugin {
             this.authService = new AuthorizationService(getContext(), appAuthConfig);
             try {
                 Intent authIntent = this.authService.getAuthorizationRequestIntent(req);
-                CustomTabsIntent.Builder intentBuilder = this.authService.createCustomTabsIntentBuilder(oauth2Options.getRedirectUrl());
-                authIntent.set(intentBuilder.build());
                 saveCall(call);
                 startActivityForResult(call, authIntent, REQ_OAUTH_AUTHORIZATION);
             } catch (ActivityNotFoundException e) {
