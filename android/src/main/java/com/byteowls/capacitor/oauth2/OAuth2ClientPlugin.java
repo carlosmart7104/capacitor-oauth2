@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
+import androidx.browser.customtabs.CustomTabsIntent;
 
 import com.byteowls.capacitor.oauth2.handler.AccessTokenCallback;
 import com.byteowls.capacitor.oauth2.handler.OAuth2CustomHandler;
@@ -268,7 +269,8 @@ public class OAuth2ClientPlugin extends Plugin {
 
             this.authService = new AuthorizationService(getContext(), appAuthConfig);
             try {
-                Intent authIntent = this.authService.getAuthorizationRequestIntent(req);
+                CustomTabsIntent customTabsIntent = new CustomTabsIntent.Builder().build();
+                Intent authIntent = this.authService.getAuthorizationRequestIntent(req, customTabsIntent);
                 saveCall(call);
                 startActivityForResult(call, authIntent, REQ_OAUTH_AUTHORIZATION);
             } catch (ActivityNotFoundException e) {
