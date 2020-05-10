@@ -1,6 +1,6 @@
 {
-    "name": "capacitor-oauth2",
-    "version": "1.0.8",
+    "name": "@carlosmart7104/capacitor-oauth2",
+    "version": "1.0.11",
     "description": "Simple Capacitor OAuth 2 client plugin",
     "author": "Michael Oberwasserlechner forked by Carlos Martínez",
     "homepage": "https://github.com/carlosmart7104/capacitor-oauth2",
@@ -40,14 +40,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/carlosmart7104/capacitor-oauth2"
+        "url": "git+https://github.com/carlosmart7104/capacitor-oauth2"
     },
     "bugs": {
         "url": "https://github.com/carlosmart7104/capacitor-oauth2/issues"
     },
     "publishConfig": {
         "access": "public",
-        "registry": "https://npm.pkg.github.com/@carlosmart7104"
+        "registry": "https://npm.pkg.github.com"
     },
     "peerDependencies": {
         "@capacitor/core": "^2.0.0"
