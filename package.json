@@ -1,5 +1,5 @@
 {
-    "name": "@carlosmart7104/capacitor-oauth2",
+    "name": "@techxagon/capacitor-oauth2",
     "version": "1.0.11",
     "description": "Simple Capacitor OAuth 2 client plugin",
     "author": "Michael Oberwasserlechner forked by Carlos Martínez",
