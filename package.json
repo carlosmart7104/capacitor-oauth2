@@ -21,7 +21,7 @@
         "dist/",
         "ios/",
         "android/",
-        "ByteowlsCapacitorOauth2.podspec"
+        "TechxagonCapacitorOauth2.podspec"
     ],
     "keywords": [
         "capacitor",
