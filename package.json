@@ -47,7 +47,7 @@
     },
     "publishConfig": {
         "access": "public",
-        "registry": "https://npm.k8s.techxagon.io"
+        "registry": "https://npm.techxagon.io"
     },
     "peerDependencies": {
         "@capacitor/core": "^2.0.0"
